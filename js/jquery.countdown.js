@@ -111,7 +111,6 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
       return this.init();
     };
     var datetime_start = new Date();
-    console.log(datetime_start, datetime_start.hours, datetime_start.min);
     $.countdown.defaultOptions = {
       date: datetime_start,
       refresh: 1000,
