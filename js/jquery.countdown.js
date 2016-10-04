@@ -34,7 +34,7 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
       getDateData = function(endDate) {
         var dateData, diff;
         endDate = Date.parse($.isPlainObject(_this.options.date) ? _this.options.date : new Date(_this.options.date));
-        diff = (endDate - Date.parse(new Date)) / 1000;
+        diff = (endDate/1000 - moment().unix()) ;
         if (diff <= 0) {
           diff = 0;
           if (_this.interval) {
@@ -110,8 +110,10 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
       };
       return this.init();
     };
+    var datetime_start = new Date();
+    console.log(datetime_start, datetime_start.hours, datetime_start.min);
     $.countdown.defaultOptions = {
-      date: new Date(),
+      date: datetime_start,
       refresh: 1000,
       onEnd: $.noop,
       render: function(date) {
